@@ -1,0 +1,287 @@
+/* On choisit une police sympa */
+body {
+    background-color: #fff0f5; /* Un rose très clair pour le fond de page */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b0082; /* Un violet foncé pour le texte, très lisible */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cv-container {
+    background-color: white;
+    width: 80%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5); /* Ombre rosée */
+    border-left: 8px solid #ff69b4; /* Bordure rose vif sur le côté */
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #ffb6c1;
+    padding-bottom: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Pour rendre la photo ronde */
+    border: 3px solid #ff69b4;
+    object-fit: cover;
+}
+
+h1 {
+    letter-spacing: 5px;
+    margin-top: 10px;
+    color: #db7093; /* Rose "PaleVioletRed" */
+}
+
+.section-title {
+    background-color: #ffb6c1;
+    color: white;
+    padding: 5px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+/* --- Nouveaux styles pour la mise en page complexe --- */
+
+.cv-container {
+    padding-left: 20px; /* Ajoute un peu d'espace à gauche pour compenser la bordure */
+}
+
+/* Organisation en colonnes (Grille) pour À propos et Contact */
+.bio-contact {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 parts pour la bio, 1 part pour le contact */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.bio p {
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.contact-info ul {
+    list-style: none; /* Enlève les puces */
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+    color: #4b0082;
+}
+
+/* Styles pour les titres principaux (Cursus, XP) */
+.section-title-large {
+    color: #db7093; /* Même rose que ton nom */
+    font-size: 1.5em;
+    border-bottom: 2px solid #ffb6c1;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Timeline pour le Cursus */
+.timeline {
+    border-left: 2px solid #ffb6c1;
+    padding-left: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline-item .year {
+    font-weight: bold;
+    color: #db7093;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Point violet sur la timeline */
+.timeline-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: #4b0082; /* Ton violet */
+    border-radius: 50%;
+    position: absolute;
+    left: -27px;
+    top: 5px;
+}
+
+/* Style Expérience */
+.experience-item {
+    margin-bottom: 25px;
+}
+
+.experience-item .date {
+    font-weight: bold;
+    color: #db7093;
+}
+
+.xp-desc {
+    margin-left: 15px;
+    color: #4b0082;
+}
+/* --- Styles pour la nouvelle grille de compétences --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.skills-grid h4 {
+    color: #db7093; /* Même rose que ton nom */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ffb6c1;
+    padding-bottom: 5px;
+}
+
+.skills-grid ul {
+    list-style-type: none; /* Enlève les puces */
+    padding-left: 0;
+}
+
+.skills-grid li {
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    position: relative;
+    padding-left: 15px;
+}
+
+/* Petite puce rose devant chaque compétence */
+.skills-grid li::before {
+    content: '•';
+    color: #ff69b4; /* Rose vif */
+    position: absolute;
+    left: 0;
+}
+/* --- Styles pour les projets --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes pour les projets */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.project-card {
+    background-color: #fffafa; /* Un blanc-rose très léger */
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px dashed #ffb6c1; /* Bordure pointillée rose */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Petit effet de survol sympa */
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.project-card h4 {
+    color: #4b0082; /* Violet pour les titres de projets */
+    margin-bottom: 5px;
+}
+
+.project-card p {
+    font-size: 0.85em;
+    line-height: 1.4;
+    color: #333;
+}
+.extras-grid {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #4b0082;
+    background: #fff0f5;
+    padding: 15px;
+    border-radius: 8px;
+}
+/* Style du bouton Imprimer */
+.print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff69b4; /* Rose vif */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.print-btn:hover {
+    background-color: #db7093;
+    transform: scale(1.05);
+}
+
+/* On cache le bouton au moment de l'impression réelle */
+/* =========================================
+   STYLE SPÉCIAL POUR L'IMPRESSION (PDF)
+   Force le CV à tenir sur une seule page A4
+   ========================================= */
+
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 0; /* On gère les marges nous-mêmes */
+    }
+
+    /* On cache tout ce qui dépasse */
+    .print-btn, .extras, footer { display: none !important; }
+
+    body {
+        background: white !important;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    /* On force le container à ne pas dépasser la hauteur d'une page A4 */
+    .cv-container {
+        width: 210mm !important;
+        height: 297mm !important;
+        padding: 10mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        overflow: hidden !important; /* Coupe tout ce qui dépasse sur la page 2 */
+        zoom: 0.8; /* Réduit tout de 20% pour être sûr que ça rentre */
+    }
+
+    /* On force les colonnes avec des largeurs fixes en pixels pour l'imprimante */
+    .bio-contact {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .bio {
+        display: inline-block !important;
+        width: 60% !important;
+        vertical-align: top;
+    }
+
+    .contact-info {
+        display: inline-block !important;
+        width: 35% !important;
+        vertical-align: top;
+        margin-left: 2% !important;
+    }
+
+    /* On serre les titres pour gagner de la place */
+    h1 { margin-top: 0 !important; font-size: 22pt !important; }
+    .section-title-large { margin-top: 10pt !important; margin-bottom: 5pt !important; }
+    
+    /* On s'assure que les icônes ne font pas sauter de ligne */
+    i { width: 15pt !important; }
+}
