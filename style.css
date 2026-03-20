@@ -285,3 +285,18 @@ h1 {
     /* On s'assure que les icônes ne font pas sauter de ligne */
     i { width: 15pt !important; }
 }
+/* Animation pour le nom */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /* Part de 30px plus haut */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Arrive à sa place normale */
+    }
+}
+
+h1 {
+    animation: slideDown 1.2s ease-out; /* L'animation dure 1.2 seconde */
+}
