@@ -1,11 +1,22 @@
-// Attendre que la page soit chargée
 document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Gestion du Mode Sombre
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        // Change l'icône selon le mode
+        if (body.classList.contains('dark-mode')) {
+            themeIcon.textContent = '☀️'; // Soleil pour revenir au clair
+        } else {
+            themeIcon.textContent = '🌙'; // Lune pour passer au sombre
+        }
+    });
+
+    // --- Garder tes animations existantes ---
     const sections = document.querySelectorAll('section');
-
-    const options = {
-        threshold: 0.1 // Déclenche l'effet quand 10% de la section est visible
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -13,10 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.style.transform = "translateY(0)";
             }
         });
-    }, options);
+    }, { threshold: 0.1 });
 
     sections.forEach(section => {
-        // Style de départ (invisible et un peu plus bas)
         section.style.opacity = "0";
         section.style.transform = "translateY(20px)";
         section.style.transition = "all 0.8s ease-out";
