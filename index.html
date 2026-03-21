@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="splash-screen">
+        <div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+    <div class="splash-content">
+        <h1 class="logo-text">
+            <span class="letter">M</span>
+            <span class="letter">A</span>
+            <span class="letter">R</span>
+            <span class="letter">I</span>
+            <span class="letter">E</span>
+            <span>-</span>
+            <span class="letter">A</span>
+            <span class="letter">N</span>
+            <span class="letter">G</span>
+            <span class="letter">E</span>
+        </h1>
+        <p class="loader-text">Initialisation de l'élégance...</p>
+    </div>
+</div>
 <button onclick="window.print()" class="print-btn">
     <i class="fas fa-file-pdf"></i> Télécharger en PDF
 </button>
@@ -144,5 +163,72 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+    // Attend que toute la page soit chargée
+    window.addEventListener('load', function() {
+        // Sélectionne l'écran de chargement
+        var splashScreen = document.getElementById('splash-screen');
+        
+        // Patiente 3 secondes (3000 millisecondes)
+        setTimeout(function() {
+            // Ajoute la classe 'hidden' pour le cacher doucement
+            splashScreen.classList.add('hidden');
+        }, 3000); // Tu peux changer ce temps (ex: 2000 pour 2s)
+    });
+    
+</script>
+<script>
+    // Attend que la splash screen disparaisse (un peu plus de 3 secondes)
+    setTimeout(function() {
+       // Remplace l'ancienne ligne par celle-là :
+const photo = document.querySelector('header img');
+        // Si la photo n'existe pas, on arrête
+        if (!photo) return;
+
+        // Écoute les mouvements de la souris
+        document.addEventListener('mousemove', function(e) {
+            // Calcule la position de la souris par rapport au centre de l'écran
+            const x = (window.innerWidth / 2 - e.pageX) / 25; // Sensibilité horizontale (plus le chiffre est grand, moins ça bouge)
+            const y = (window.innerHeight / 2 - e.pageY) / 25; // Sensibilité verticale
+
+            // Applique une rotation 3D à l'image en fonction de la souris
+            photo.style.transform = 'rotateY(' + x + 'deg) rotateX(' + -y + 'deg) scale(1.05)';
+        });
+
+        // Quand la souris quitte la page, remet la photo à plat
+        document.addEventListener('mouseleave', function() {
+            photo.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+        });
+
+    }, 3500); // Démarre 0.5s APRÈS la fin de la splash screen (3s + 0.5s)
+</script>
+<script>
+    // 1. GESTION DE LA SPLASH SCREEN
+    window.addEventListener('load', function() {
+        var splashScreen = document.getElementById('splash-screen');
+        setTimeout(function() {
+            splashScreen.classList.add('hidden');
+        }, 3000); 
+    });
+
+    // 2. GESTION DE LA PHOTO INTERACTIVE (TILT)
+    setTimeout(function() {
+        const photo = document.querySelector('header img'); 
+
+        if (!photo) return;
+
+        document.addEventListener('mousemove', function(e) {
+            const x = (window.innerWidth / 2 - e.pageX) / 30; 
+            const y = (window.innerHeight / 2 - e.pageY) / 30; 
+
+            photo.style.transform = 'rotateY(' + x + 'deg) rotateX(' + -y + 'deg) scale(1.1)';
+        });
+
+        document.addEventListener('mouseleave', function() {
+            photo.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1)';
+        });
+    }, 3500);
+</script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -33,3 +33,31 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 });
+// --- Code pour la Splash Screen (Garder tes animations existantes) ---
+// Ajoute ceci ici :
+    const splashScreen = document.getElementById('splash-screen');
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            splashScreen.classList.add('hidden');
+        }, 3000); 
+    });
+
+// --- Code pour l'effet de photo interactive (TILT) ---
+// Ajoute ceci après :
+    const photo = document.querySelector('header img'); 
+
+    if (photo) {
+        document.addEventListener('mousemove', function(e) {
+            const speed = 15; // Plus ce chiffre est petit, plus ça tourne fort
+            const x = (window.innerWidth / 2 - e.pageX) / speed;
+            const y = (window.innerHeight / 2 - e.pageY) / speed;
+
+            photo.style.transform = `perspective(1000px) rotateY(${-x}deg) rotateX(${y}deg) scale(1.1)`;
+        });
+
+        document.addEventListener('mouseleave', function() {
+            photo.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+        });
+    }
+
+// --- Fin de l'ajout ---
